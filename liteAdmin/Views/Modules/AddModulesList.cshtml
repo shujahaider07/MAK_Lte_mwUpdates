@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BusinessLogic.Modules>
+
+@{
+    ViewData["Title"] = "AddModulesList";
+}
+
+<h1>AddModulesList</h1>
+
+<p>
+    <a asp-action="AddModulesList">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InQueueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutQueue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogFilePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogFilePattern)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogFileSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InQueueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutQueue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogFilePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogFilePattern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogFileSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+              @*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

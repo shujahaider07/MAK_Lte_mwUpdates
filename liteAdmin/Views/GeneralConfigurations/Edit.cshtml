@@ -1,0 +1,111 @@
+﻿@model BusinessLogic.GeneralConfigurations
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>GeneralConfigurations</h4>
+<form asp-action="Edit">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved1" class="control-label"></label>
+                <input asp-for="Reserved1" class="form-control" />
+                <span asp-validation-for="Reserved1" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved2" class="control-label"></label>
+                <input asp-for="Reserved2" class="form-control" />
+                <span asp-validation-for="Reserved2" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved3" class="control-label"></label>
+                <input asp-for="Reserved3" class="form-control" />
+                <span asp-validation-for="Reserved3" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved4" class="control-label"></label>
+                <input asp-for="Reserved4" class="form-control" />
+                <span asp-validation-for="Reserved4" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved5" class="control-label"></label>
+                <input asp-for="Reserved5" class="form-control" />
+                <span asp-validation-for="Reserved5" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved6" class="control-label"></label>
+                <input asp-for="Reserved6" class="form-control" />
+                <span asp-validation-for="Reserved6" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved7" class="control-label"></label>
+                <input asp-for="Reserved7" class="form-control" />
+                <span asp-validation-for="Reserved7" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved8" class="control-label"></label>
+                <input asp-for="Reserved8" class="form-control" />
+                <span asp-validation-for="Reserved8" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved9" class="control-label"></label>
+                <input asp-for="Reserved9" class="form-control" />
+                <span asp-validation-for="Reserved9" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Reserved10" class="control-label"></label>
+                <input asp-for="Reserved10" class="form-control" />
+                <span asp-validation-for="Reserved10" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+  
+<div>
+    <a asp-action="GeneralConfigurationsList">Back to List</a>
+</div>
+

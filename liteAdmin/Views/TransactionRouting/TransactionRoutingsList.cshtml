@@ -1,0 +1,96 @@
+﻿@model IEnumerable<BusinessLogic.TransactionRoutings>
+
+@{
+    ViewData["Title"] = "TransactionRoutingsList";
+}
+
+<h1>TransactionRoutingsList</h1>
+
+<p>
+    <a asp-action="AddTransactionRouting">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParticipantId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFieldId1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeld2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeld3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeld4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeld5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParticipantId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeyFieldId1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeyFIeld2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeyFIeld3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeyFIeld4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeyFIeld5)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedBy)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

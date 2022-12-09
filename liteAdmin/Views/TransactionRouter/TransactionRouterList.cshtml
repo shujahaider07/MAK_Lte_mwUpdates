@@ -1,0 +1,107 @@
+﻿@model IEnumerable<BusinessLogic.TransactionRouter>
+
+@{
+    ViewData["Title"] = "TransactionRouterList";
+}
+
+<h1>TransactionRouterList</h1>
+
+<p>
+    <a asp-action="AddTransactionRouter">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionRoutingId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SendingQueue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdaptorAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeldValue1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeldValue2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeldValue3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeldValue4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeyFIeldValue5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionRoutingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SendingQueue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdaptorAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyFIeldValue1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyFIeldValue2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyFIeldValue3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyFIeldValue4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeyFIeldValue5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+               
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

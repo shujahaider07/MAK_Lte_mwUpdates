@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BusinessLogic.ParticipantType>
+
+@{
+    ViewData["Title"] = "ParticipantTypeList";
+}
+
+<h1>ParticipantsTypeList</h1>
+
+<p>
+    <a asp-action="ParticipantsType">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ParticipantTypeId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descryption)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.ParticipantTypeId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descryption)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) 
+               @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) *@|
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

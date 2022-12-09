@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BusinessLogic.TransactionCodeMapping>
+
+@{
+    ViewData["Title"] = "TransactionCodeMappingList";
+}
+
+<h1>TransactionCodeMappingList</h1>
+
+<p>
+    <a asp-action="AddTransactionCodeMapping">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExternalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParticipantId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExternalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.UpdateOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+               
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

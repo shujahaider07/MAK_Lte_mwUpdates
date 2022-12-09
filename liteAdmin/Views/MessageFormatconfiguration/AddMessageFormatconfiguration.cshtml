@@ -1,0 +1,200 @@
+﻿@model BusinessLogic.MessageFormatconfiguration
+
+@{
+    ViewData["Title"] = "AddMessageFormatconfiguration";
+}
+
+<h1>AddMessageFormatconfiguration</h1>
+
+<h4>MessageFormatconfiguration</h4>
+<form asp-action="AddMessageFormatconfiguration">
+<div class="row">
+    <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AssociationId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.AssociationId,ViewBag.associationData as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="AssociationId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PaticipantId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.PaticipantId,ViewBag.ParticipantData as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="PaticipantId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="FieldName" class="control-label"></label>
+                <input asp-for="FieldName" class="form-control" />
+                <span asp-validation-for="FieldName" class="text-danger"></span>
+            </div>
+            </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="InternalFieldId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.InternalFieldId, ViewBag.internalFields  as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="InternalFieldId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="EncodingTypeId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.EncodingTypeId,ViewBag.encodingtype as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="EncodingTypeId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Alias" class="control-label"></label>
+                <input asp-for="Alias" class="form-control" />
+                <span asp-validation-for="Alias" class="text-danger"></span>
+            </div>
+            </div>
+       </div>
+
+
+        <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PaticipantTypeId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.PaticipantTypeId, ViewBag.participantType  as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="PaticipantTypeId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="ParentTagId" class="control-label"></label>
+                <input asp-for="ParentTagId" class="form-control" />
+                <span asp-validation-for="ParentTagId" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Identifier" class="control-label"></label>
+                <input asp-for="Identifier" class="form-control" />
+                <span asp-validation-for="Identifier" class="text-danger"></span>
+            </div>
+            </div>
+       </div>
+
+    <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Mask" class="control-label"></label>
+                <input asp-for="Mask" class="form-control" />
+                <span asp-validation-for="Mask" class="text-danger"></span>
+            </div>
+            </div>
+              <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Encrypt" class="control-label"></label>
+                <input asp-for="Encrypt" class="form-control" />
+                <span asp-validation-for="Encrypt" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BitmappedId" class="control-label"></label>
+                <input asp-for="BitmappedId" class="form-control" />
+                <span asp-validation-for="BitmappedId" class="text-danger"></span>
+            </div>
+            </div>
+       </div>
+
+        <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BitNumber" class="control-label"></label>
+                <input asp-for="BitNumber" class="form-control" />
+                <span asp-validation-for="BitNumber" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="StartIndex" class="control-label"></label>
+                <input asp-for="StartIndex" class="form-control" />
+                <span asp-validation-for="StartIndex" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="EndIndex" class="control-label"></label>
+                <input asp-for="EndIndex" class="form-control" />
+                <span asp-validation-for="EndIndex" class="text-danger"></span>
+            </div>
+            </div>
+         </div>
+
+    <div class="row">
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Delimiter" class="control-label"></label>
+                <input asp-for="Delimiter" class="form-control" />
+                <span asp-validation-for="Delimiter" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MetaLengthTypeId" class="control-label"></label>
+                <input asp-for="MetaLengthTypeId" class="form-control" />
+                <span asp-validation-for="MetaLengthTypeId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MetaLength" class="control-label"></label>
+                <input asp-for="MetaLength" class="form-control" />
+                <span asp-validation-for="MetaLength" class="text-danger"></span>
+            </div>
+            </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="UpdatedOn" class="control-label"></label>
+                <input asp-for="UpdatedOn" class="form-control" />
+                <span asp-validation-for="UpdatedOn" class="text-danger"></span>
+            </div>
+            </div>
+            
+      </div>
+    <div class="row">
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="UpdatedBy" class="control-label"></label>
+                <input asp-for="UpdatedBy" class="form-control" />
+                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+            </div>
+            </div>
+          </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+  
+
+<div>
+    <a asp-action="MessageFormatconfigurationList">Back to List</a>
+</div>
+

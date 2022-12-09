@@ -1,0 +1,167 @@
+﻿@model IEnumerable<BusinessLogic.MessageFormatconfiguration>
+
+@{
+    ViewData["Title"] = "MessageFormatconfigurationList";
+}
+
+<h1>MessageFormatconfigurationList</h1>
+
+<p>
+    <a asp-action="AddMessageFormatconfiguration">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssociationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaticipantId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FieldName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalFieldId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EncodingTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaticipantTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentTagId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identifier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mask)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Encrypt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitmappedId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartIndex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndIndex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Delimiter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaLengthTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetaLength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssociationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaticipantId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FieldName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternalFieldId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EncodingTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaticipantTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentTagId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identifier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mask)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Encrypt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitmappedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartIndex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndIndex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delimiter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaLengthTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaLength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+               @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

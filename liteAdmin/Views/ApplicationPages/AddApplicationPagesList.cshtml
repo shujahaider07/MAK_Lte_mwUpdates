@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BusinessLogic.ApplicationPages>
+
+@{
+    ViewData["Title"] = "AddApplicationPagesList";
+}
+
+<h1>AddApplicationPagesList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PageImagePath)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageImagePath)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+             @*   @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,100 @@
+﻿@model BusinessLogic.TransactionRoutings
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TransactionRoutings</h4>
+<form asp-action="Edit">
+<div class="row">
+    <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ParticipantId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.ParticipantId,ViewBag.ParticipantData as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="ParticipantId" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="KeyFieldId1" class="control-label"></label>
+                <input asp-for="KeyFieldId1" class="form-control" />
+                <span asp-validation-for="KeyFieldId1" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="KeyFIeld2" class="control-label"></label>
+                <input asp-for="KeyFIeld2" class="form-control" />
+                <span asp-validation-for="KeyFIeld2" class="text-danger"></span>
+            </div>
+            </div>
+            </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="KeyFIeld3" class="control-label"></label>
+                <input asp-for="KeyFIeld3" class="form-control" />
+                <span asp-validation-for="KeyFIeld3" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="KeyFIeld4" class="control-label"></label>
+                <input asp-for="KeyFIeld4" class="form-control" />
+                <span asp-validation-for="KeyFIeld4" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="KeyFIeld5" class="control-label"></label>
+                <input asp-for="KeyFIeld5" class="form-control" />
+                <span asp-validation-for="KeyFIeld5" class="text-danger"></span>
+            </div>
+            </div>
+            </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="UpdateOn" class="control-label"></label>
+                <input asp-for="UpdateOn" class="form-control" />
+                <span asp-validation-for="UpdateOn" class="text-danger"></span>
+            </div>
+            </div>
+            </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="UpdatedBy" class="control-label"></label>
+                <input asp-for="UpdatedBy" class="form-control" />
+                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+            </div>
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+
+<div>
+    <a asp-action="TransactionRoutingsList">Back to List</a>
+</div>
+

@@ -1,0 +1,75 @@
+﻿@model BusinessLogic.SafConfiguration
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SafConfiguration</h4>
+ <form asp-action="Edit">
+<div class="row">
+    <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ParticipantId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.ParticipantId,ViewBag.ParticipantData as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                <span asp-validation-for="ParticipantId" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="RetryCount" class="control-label"></label>
+                <input asp-for="RetryCount" class="form-control" />
+                <span asp-validation-for="RetryCount" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MaxRetires" class="control-label"></label>
+                <input asp-for="MaxRetires" class="form-control" />
+                <span asp-validation-for="MaxRetires" class="text-danger"></span>
+            </div>
+            </div>
+     </div>
+    <div class="row">
+    <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="UpdateOn" class="control-label"></label>
+                <input asp-for="UpdateOn" class="form-control" />
+                <span asp-validation-for="UpdateOn" class="text-danger"></span>
+            </div>
+            </div>
+     </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="UpdateBy" class="control-label"></label>
+                <input asp-for="UpdateBy" class="form-control" />
+                <span asp-validation-for="UpdateBy" class="text-danger"></span>
+            </div>
+            </div>
+       </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+ 
+<div>
+    <a asp-action="SafConfigurationList">Back to List</a>
+</div>
+

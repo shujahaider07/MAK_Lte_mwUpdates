@@ -1,0 +1,101 @@
+﻿@model IEnumerable<BusinessLogic.GeneralConfigurations>
+
+@{
+    ViewData["Title"] = "GeneralConfigurationsList";
+}
+
+<h1>GeneralConfigurationsList</h1>
+
+<p>
+    <a asp-action="AddGeneralConfigurations">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reserved10)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reserved10)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+               @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

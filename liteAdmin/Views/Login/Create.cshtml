@@ -1,0 +1,90 @@
+﻿@model BusinessLogic.UserCredentials
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>UserCredentials</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoginId" class="control-label"></label>
+                <input asp-for="LoginId" class="form-control" />
+                <span asp-validation-for="LoginId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsBLock" class="control-label"></label>
+                <input asp-for="IsBLock" class="form-control" />
+                <span asp-validation-for="IsBLock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoginRetryCount" class="control-label"></label>
+                <input asp-for="LoginRetryCount" class="form-control" />
+                <span asp-validation-for="LoginRetryCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxTry" class="control-label"></label>
+                <input asp-for="MaxTry" class="form-control" />
+                <span asp-validation-for="MaxTry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsUserLogedin" class="control-label"></label>
+                <input asp-for="IsUserLogedin" class="form-control" />
+                <span asp-validation-for="IsUserLogedin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastLoginTime" class="control-label"></label>
+                <input asp-for="LastLoginTime" class="form-control" />
+                <span asp-validation-for="LastLoginTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="plainPassword" class="control-label"></label>
+                <input asp-for="plainPassword" class="form-control" />
+                <span asp-validation-for="plainPassword" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
