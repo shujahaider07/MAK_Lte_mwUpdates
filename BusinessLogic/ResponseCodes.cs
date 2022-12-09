@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class ResponeCodes
+    public class ResponseCodes
     {
         [Key]
         public int Id { get; set; }

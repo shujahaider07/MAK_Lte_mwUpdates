@@ -34,6 +34,8 @@ builder.Services.AddScoped<IMessageFormatconfiguration,MessageFormatconfiguratio
 builder.Services.AddScoped<IModules,ModulesRepo>();
 builder.Services.AddScoped<IApplicationPages,ApplicationPagesRepo>();
 builder.Services.AddScoped<IPageAction,PageActionRepo>();
+builder.Services.AddScoped<IResponseCodeMapping,ResponseCodeMappingRepo>();
+builder.Services.AddScoped<IResponseCodes,ResponseCodesRepo>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {

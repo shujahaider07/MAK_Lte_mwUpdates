@@ -80,7 +80,7 @@ namespace repository
             return await db.ResponseCodeMapping.FindAsync(Id);
         }
 
-        public IEnumerable<ResponseCodeMapping> ListResponseCodeMapping()
+        public async Task <IEnumerable<ResponseCodeMapping>> ListResponseCodeMapping()
         {
             return db.ResponseCodeMapping.ToList();
         }

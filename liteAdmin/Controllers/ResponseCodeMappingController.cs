@@ -8,12 +8,12 @@ namespace MAK_Lte_Mw.Controllers
     public class ResponseCodeMappingController : Controller
     {
 
-        private readonly IResponeCodes _Respone;
+        private readonly IResponseCodeMapping _ResponseCodeMapping;
 
 
-        public ResponseCodeMappingController(IResponeCodes _Respone)
+        public ResponseCodeMappingController(IResponseCodeMapping _ResponseCodeMapping)
         {
-            this._Respone = _Respone;
+            this._ResponseCodeMapping = _ResponseCodeMapping;
         }
 
 
@@ -27,7 +27,7 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
-            var list = await _Respone.ListResponeCodes();
+            var list = await _ResponseCodeMapping.ListResponseCodeMapping();
 
             return View(list);
         }
@@ -35,7 +35,7 @@ namespace MAK_Lte_Mw.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> ResponeCodes()
+        public async Task<IActionResult> ResponeCodesMapping()
         {
             if (HttpContext.Session.GetString("username") == null)
             {
@@ -48,7 +48,7 @@ namespace MAK_Lte_Mw.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> ResponeCodes(ResponeCodes a)
+        public async Task<IActionResult> ResponeCodesMapping(ResponseCodeMapping a)
         {
             if (HttpContext.Session.GetString("username") == null)
             {
@@ -58,7 +58,7 @@ namespace MAK_Lte_Mw.Controllers
 
             if (ModelState.IsValid)
             {
-                var add = await _Respone.AddResponeCodes(a);
+                var add = await _ResponseCodeMapping.AddResponseCodeMapping(a);
                 return RedirectToAction("ResponeCodesList");
 
             }
@@ -69,14 +69,14 @@ namespace MAK_Lte_Mw.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(ResponeCodes a)
+        public async Task<IActionResult> Edit(ResponseCodeMapping a)
         {
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _Respone.Edit(a);
+                    _ResponseCodeMapping.Edit(a);
 
 
                     return RedirectToAction("ResponeCodesList");
@@ -95,7 +95,7 @@ namespace MAK_Lte_Mw.Controllers
         public async Task<IActionResult> Edit(int id)
         {
 
-            ResponeCodes Fetch = await _Respone.GetResponeCodesByID(id);
+            ResponseCodeMapping Fetch = await _ResponseCodeMapping.GetResponseCodeMappingByID(id);
             return View(Fetch);
 
         }
@@ -104,7 +104,7 @@ namespace MAK_Lte_Mw.Controllers
         public async Task<IActionResult> Delete(int id, bool? saveChangesError)
         {
 
-            ResponeCodes asso = await _Respone.GetResponeCodesByID(id);
+            ResponseCodeMapping asso = await _ResponseCodeMapping.GetResponseCodeMappingByID(id);
             return View(asso);
 
         }
@@ -115,8 +115,8 @@ namespace MAK_Lte_Mw.Controllers
 
             if (ModelState.IsValid)
             {
-                ResponeCodes asso = await _Respone.GetResponeCodesByID(id);
-                _Respone.DeleteResponeCodes(id);
+                ResponseCodeMapping asso = await _ResponseCodeMapping.GetResponseCodeMappingByID(id);
+                _ResponseCodeMapping.DeleteResponseCodeMapping(id);
                 return RedirectToAction("ResponeCodesList");
             }
             else

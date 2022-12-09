@@ -6,7 +6,7 @@ namespace repository
     {
         public Task<ResponseCodeMapping> AddResponseCodeMapping(ResponseCodeMapping rcm);
 
-        public IEnumerable<ResponseCodeMapping> ListResponseCodeMapping();
+        public Task<IEnumerable<ResponseCodeMapping>> ListResponseCodeMapping();
         public Task<IEnumerable<ResponseCodeMapping>> Edit(ResponseCodeMapping rcm);
 
         public Task<ResponseCodeMapping> GetResponseCodeMappingByID(int Id);

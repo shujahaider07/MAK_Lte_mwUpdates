@@ -25,7 +25,7 @@ namespace BusinessLogic
         public DbSet<UserRoles> UserRoles { get; set; }
         public DbSet<TransactionalLogs> TransactionalLogs { get; set; }
         public DbSet<TransactionFields> TransactionFields { get; set; }
-        public DbSet<ResponeCodes> ResponeCodes { get; set; }
+        public DbSet<ResponseCodes> ResponseCodes { get; set; }
         public DbSet<ResponseCodeMapping> ResponseCodeMapping { get; set; }
         public DbSet<TransactionRouter> TransactionRouter { get; set; }
         public DbSet<TransactionRoutings> TransactionRoutings { get; set; }

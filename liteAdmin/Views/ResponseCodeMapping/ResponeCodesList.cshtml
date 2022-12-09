@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BusinessLogic.ResponseCodeMapping>
+
+@{
+    ViewData["Title"] = "ResponeCodesList";
+}
+
+<h1>ResponeCodesList</h1>
+
+<p>
+    <a asp-action="ResponeCodesMapping">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExternalResponseCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalResponseCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExternalResponseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternalResponseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+              @*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
