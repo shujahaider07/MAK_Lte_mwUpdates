@@ -115,7 +115,7 @@ namespace MAK_Lte_Mw.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    await _adaptor.Edit(a);
+                     _adaptor.Edit(a);
 
 
                     return RedirectToAction("AdaptorList");

@@ -16,7 +16,7 @@ namespace BusinessLogic
         //public string Password { get; set; }
         public string Address { get; set; }
         public Decimal Phone { get; set; }
-        public int AssociationId { get; set; } = 0;
+        public int AssociationId { get; set; } 
         public char IsActive { get; set; }
         public DateTime CreatedOn { get; set; }
         public int CreatedBy { get; set; }

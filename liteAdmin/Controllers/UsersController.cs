@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using repository;
 using System.Data;
 
@@ -9,11 +10,13 @@ namespace MAK_Lte_Mw.Controllers
     {
 
         private readonly Iusers _users;
+        private readonly ApplicationDbContext db;
 
 
-        public UsersController(Iusers _users)
+        public UsersController(Iusers _users, ApplicationDbContext db)
         {
             this._users = _users;
+            this.db = db;
         }
 
 
@@ -26,6 +29,9 @@ namespace MAK_Lte_Mw.Controllers
             {
                 return RedirectToAction("LoginView", "Login");
             }
+
+        
+
 
             var list = await _users.ListUsers();
 
@@ -42,6 +48,8 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
+            List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
+            ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
             return View();
         }
@@ -94,6 +102,8 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
+            ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
             Users Fetch = await _users.GetUsersByID(id);
             return View(Fetch);

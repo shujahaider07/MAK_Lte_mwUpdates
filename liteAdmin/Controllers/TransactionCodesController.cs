@@ -19,7 +19,11 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public IActionResult AddTransactionCode()
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("LoginView", "Login");
 
+            }
             return View();
         }
 

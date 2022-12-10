@@ -33,8 +33,8 @@ namespace MAK_Lte_Mw.Controllers
                 List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
                 ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
-                List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id}).ToList();
-                ViewBag.participantType = new SelectList(participantType, "Id","Id");
+                List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
+                ViewBag.participantType = new SelectList(participantType, "Id", "Id");
 
 
                 //Participants types = new Participants();
@@ -103,6 +103,9 @@ namespace MAK_Lte_Mw.Controllers
         {
             List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.associationData = new SelectList(associations, "Id", "Name");
+
+            List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
+            ViewBag.participantType = new SelectList(participantType, "Id", "Id");
 
             Participants Fetch = await _parti.GetParticipantsByID(id);
             return View(Fetch);

@@ -46,7 +46,7 @@ namespace MAK_Lte_Mw.Controllers
                     return RedirectToAction("LoginView", "Login");
                 }
 
-                return RedirectToAction("Encoding");
+                return RedirectToAction("EncodingList");
 
             }
 

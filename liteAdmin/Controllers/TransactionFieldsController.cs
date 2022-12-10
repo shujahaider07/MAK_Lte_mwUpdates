@@ -101,8 +101,9 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            //List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-            //ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+
+            List<TransactionIdentifier> identifiers = db.TransactionIdentifier.Select(x => new TransactionIdentifier { Id = x.Id, ParticipantId = x.ParticipantId }).ToList();
+            ViewBag.IdentifierData = new SelectList(identifiers, "Id", "ParticipantId");
 
             TransactionFields Fetch = await _tranFields.GetTransactionFieldsByID(id);
             return View(Fetch);
