@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,9 @@ namespace BusinessLogic
         public DateTime UpdateOn { get; set; }
         [Required]
         public int UpdatedBy { get; set; }
+
+        [NotMapped]
+        public bool IsActiveNew { get; set; }
 
         //public List<Association> AssociationList { get; set; }
 

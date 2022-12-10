@@ -27,6 +27,8 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
+            Participants p = new Participants();
+
             try
             {
 
@@ -36,6 +38,9 @@ namespace MAK_Lte_Mw.Controllers
                 List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
                 ViewBag.participantType = new SelectList(participantType, "Id", "Id");
 
+                
+
+                p.IsActiveNew = p.IsActive.ToString() == "1" ? true : false;
 
                 //Participants types = new Participants();
                 //types.AssociationList = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
@@ -58,13 +63,28 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            return View("Participants");
+            return View("Participants", p);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Participants(Participants p)
+        public async Task<IActionResult> Participants(Participants p,char IsActive)
         {
+
+            //if (IsActive == "true")
+            //{
+            //    p.IsActive = false;
+
+            //}
+
+            if (p.IsActiveNew != false)
+            {
+                p.IsActive = '1';
+            }
+            else
+            {
+                p.IsActive = '0';
+            }
 
             var add = await _parti.Addparticipant(p);
 
