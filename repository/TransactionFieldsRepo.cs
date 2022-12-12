@@ -65,9 +65,9 @@ namespace repository
                 Data.IsOptional = tf.IsOptional;
                 Data.CompleteFieldName = tf.CompleteFieldName;
                 Data.CreatedBy = tf.CreatedBy;
-                Data.CreatedOn = tf.CreatedOn;
+                Data.CreatedOn = DateTime.Now;
                 Data.UpdatedBy = tf.UpdatedBy;
-                Data.UpdateOn = tf.UpdateOn;
+                Data.UpdateOn = DateTime.Now;
                 db.Entry(Data).State = EntityState.Modified;
 
             }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessLogic
 {
@@ -23,6 +24,9 @@ namespace BusinessLogic
         public DateTime UpdateOn { get; set; }
         public int UpdatedBy { get; set; }
         public int RoleId { get; set; }
+
+        [NotMapped]
+        public bool IsActiveNew { get; set; }   
         //public string plainpassword { get; set; }
     }
 }

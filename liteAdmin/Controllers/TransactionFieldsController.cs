@@ -33,7 +33,7 @@ namespace MAK_Lte_Mw.Controllers
             ViewBag.IdentifierData = new SelectList(identifiers, "Id", "ParticipantId");
 
 
-            return View();
+            return View("transactionField");
         }
 
 

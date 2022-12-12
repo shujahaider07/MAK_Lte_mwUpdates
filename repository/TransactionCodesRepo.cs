@@ -61,9 +61,9 @@ namespace repository
                 Data.InternalCode = p.InternalCode;
                 Data.Description = p.Description;
                 Data.CreatedBy = p.CreatedBy;
-                Data.CreatedOn = p.CreatedOn;
+                Data.CreatedOn = DateTime.Now;
                 Data.UpdatedBy = p.UpdatedBy;
-                Data.UpdateOn = p.UpdateOn;
+                Data.UpdateOn = DateTime.Now;
 
                 db.Entry(Data).State = EntityState.Modified;
                 db.SaveChanges();

@@ -9,7 +9,9 @@
 <h4>Adaptor</h4>
 <form asp-action="Edit">
     <div class="row">
+
         <div class="col-md-4">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AssociationId" class="control-label"></label>
@@ -32,6 +34,8 @@
             </div>
         </div>
     </div>
+
+
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -54,7 +58,9 @@
                 <span asp-validation-for="AllowedIp" class="text-danger"></span>
             </div>
         </div>
+
     </div>
+
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -65,42 +71,50 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
-                <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="UpdateOn" class="control-label"></label>
-                <input asp-for="UpdateOn" class="form-control" />
-                <span asp-validation-for="UpdateOn" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="UpdatedBy" class="control-label"></label>
-                <input asp-for="UpdatedBy" class="form-control" />
-                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
+                <label class="checkbox-inline">
+                    <input type="checkbox" asp-for="IsActiveNew" />
+                    IsActive
+                </label>
                 <span asp-validation-for="IsActive" class="text-danger"></span>
             </div>
         </div>
     </div>
+
+
+    @*</div>*@
+    @* <div class="col-md-4">
+    <div class="form-group">
+    <label asp-for="CreatedBy" class="control-label"></label>
+    <input asp-for="CreatedBy" class="form-control" />
+    <span asp-validation-for="CreatedBy" class="text-danger"></span>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="form-group">
+    <label asp-for="UpdatedBy" class="control-label"></label>
+    <input asp-for="UpdatedBy" class="form-control" />
+    <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+
+    </div>
+    </div>*@
+
+
+
+
+    @*<div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label class="checkbox-inline">
+    <input type="checkbox" asp-for="IsActiveNew" />
+    IsActive
+    </label>
+    <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+    </div>
+    *@
+
+    @*</div>
+    *@
 
     <div class="form-group">
         <input type="submit" value="Save" class="btn btn-primary" />

@@ -53,16 +53,16 @@ namespace repository
 
         public async Task<IEnumerable<SafLog>> Edit(SafLog s)
         {
-            var data = db.SafLog.Where(x => x.Id == s.Id).FirstOrDefault();
+            var data =  db.SafLog.Where(x => x.Id == s.Id).FirstOrDefault();
             if (data != null)
             {
                 data.ParticipantId = s.ParticipantId;
                 data.Message = s.Message;
                 data.Retries = s.Retries;
                 data.CreatedBy = s.CreatedBy;
-                data.CreatedOn = s.CreatedOn;
+                data.CreatedOn = DateTime.Now;
                 data.UpdatedBy = s.UpdatedBy;
-                data.UpdateOn = s.UpdateOn;
+                data.UpdateOn = DateTime.Now;
 
                 db.SafLog.Add(s);
                 db.SaveChanges();

@@ -7,10 +7,8 @@
 <h1>AddTransactionCode</h1>
 <form asp-action="AddTransactionCode">
     <h4>TransactionCodes</h4>
-    <hr />
+    
     <div class="row">
-
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-md-4">
             <div class="form-group">
@@ -26,16 +24,16 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
         </div>
+    </div>
+@*
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="CreatedOn" class="control-label"></label>
                 <input asp-for="CreatedOn" class="form-control" />
                 <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-        </div>
-
-    </div>
-    <div class="row">
+            </div>     
+    
+   <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="CreatedBy" class="control-label"></label>
@@ -56,14 +54,14 @@
                 <input asp-for="UpdatedBy" class="form-control" />
                 <span asp-validation-for="UpdatedBy" class="text-danger"></span>
             </div>
-        </div>
+        </div>*@
+
         <div class="form-group">
             <input type="submit" value="Create" class="btn btn-primary" />
         </div>
 
 </form>
-    </div>
-</div>
+   
 
 <div>
     <a asp-action="TransactionList">Back to List</a>

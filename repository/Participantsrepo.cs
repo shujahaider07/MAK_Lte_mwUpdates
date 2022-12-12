@@ -72,10 +72,10 @@ namespace repository
                 Data.MsgEchoTimer = p.MsgEchoTimer;
                 Data.IsActive = p.IsActive;
                 Data.AssociationId = p.AssociationId;
-                Data.CreatedOn = p.CreatedOn;
+                Data.CreatedOn = DateTime.Now;
                 Data.CreatedBy = p.CreatedBy;
                 Data.UpdatedBy = p.UpdatedBy;
-                Data.UpdateOn = p.UpdateOn;
+                Data.UpdateOn = DateTime.Now;
 
                 db.Entry(Data).State = EntityState.Modified;
                 db.SaveChanges();

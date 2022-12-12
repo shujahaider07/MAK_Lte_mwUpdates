@@ -22,6 +22,7 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> AddAdaptor()
         {
+            Adaptor a = new Adaptor();
             if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToAction("LoginView", "Login");
@@ -29,6 +30,10 @@ namespace MAK_Lte_Mw.Controllers
 
             try
             {
+
+             
+                a.IsActiveNew = a.IsActive.ToString() == "1" ? true : false; 
+
 
                 List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
                 ViewBag.associationData = new SelectList(associations, "Id", "Name");
@@ -43,7 +48,7 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            return View("AddAdaptor");
+            return View("AddAdaptor",a);
 
 
 
@@ -58,6 +63,15 @@ namespace MAK_Lte_Mw.Controllers
             {
                 return RedirectToAction("LoginView", "Login");
 
+            }
+
+            if (a.IsActiveNew != false)
+            {
+                a.IsActive = '1';
+            }
+            else
+            {
+                a.IsActive = '0';
             }
 
             if (ModelState.IsValid)
@@ -91,6 +105,10 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            Adaptor a = new Adaptor();
+            a.IsActiveNew = a.IsActive.ToString() == "1" ? true : false;
+
+
             List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
@@ -110,6 +128,18 @@ namespace MAK_Lte_Mw.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Adaptor a)
         {
+            if (a.IsActiveNew != false)
+            {
+                a.IsActive = '1';
+            }
+            else
+            {
+                a.IsActive = '0';
+            }
+
+
+           
+
 
             try
             {

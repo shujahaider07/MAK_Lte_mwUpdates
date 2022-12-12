@@ -71,9 +71,9 @@ namespace repository
                 Data.AllowedIp = a.AllowedIp;
                 Data.TimeoutInSec = a.TimeoutInSec;
                 Data.CreatedBy = a.CreatedBy;
-                Data.CreatedOn = a.CreatedOn;
+                Data.CreatedOn = DateTime.Now;
                 Data.UpdatedBy = a.UpdatedBy;
-                Data.UpdateOn = a.UpdateOn;
+                Data.UpdateOn = DateTime.Now;
                 Data.IsActive = a.IsActive;
                 Data.AssociationId = a.AssociationId;
               

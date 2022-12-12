@@ -32,8 +32,8 @@ namespace repository
                 runtime.Sequence = r.Sequence;
                 runtime.InternalFieldId = r.InternalFieldId;
                 runtime.CreatedBy = r.CreatedBy;
-                runtime.CreatedOn = r.CreatedOn;
-                runtime.UpdatedOn = r.UpdatedOn;
+                runtime.CreatedOn = DateTime.Now;
+                runtime.UpdatedOn = DateTime.Now;
                 runtime.UpdatedBy = r.UpdatedBy;
 
                 var add = db.RuntimeFieldsCustomization.AddAsync(runtime);
@@ -67,8 +67,8 @@ namespace repository
                 runtime.Sequence = r.Sequence;
                 runtime.InternalFieldId = r.InternalFieldId;
                 runtime.CreatedBy = r.CreatedBy;
-                runtime.CreatedOn = r.CreatedOn;
-                runtime.UpdatedOn = r.UpdatedOn;
+                runtime.CreatedOn = DateTime.Now;
+                runtime.UpdatedOn = DateTime.Now;
                 runtime.UpdatedBy = r.UpdatedBy;
 
 

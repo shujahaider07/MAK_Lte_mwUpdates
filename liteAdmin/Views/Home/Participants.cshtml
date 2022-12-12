@@ -79,32 +79,12 @@
 
         <div class="col-md-4">
 
-            @Html.LabelFor(model => model.CreatedOn)
-            <div class="form-group">
-                @Html.TextBoxFor(model => model.CreatedOn, @"{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date", @Value = DateTime.Now.ToString("yyyy-MM-dd") })
-                @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="col-md-4">
-
             @Html.LabelFor(model => model.IsEchoEnable)
             <div class="form-group">
                 @Html.EditorFor(model => model.IsEchoEnable, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.IsEchoEnable, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-
-            @Html.LabelFor(model => model.UpdateOn)
-            <div class="form-group">
-                @Html.TextBoxFor(model => model.UpdateOn, @"{0:yyyy-MM-dd HH:mm}", new { @class = "form-control", @type = "date", @Value = DateTime.Now.AddYears(3).ToString("yyyy-MM-dd") })
-                @Html.ValidationMessageFor(model => model.UpdateOn, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
 
         <div class="col-md-4">
             @Html.LabelFor(model => model.MsgEchoTimer)
@@ -112,8 +92,10 @@
                 @Html.EditorFor(model => model.MsgEchoTimer, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MsgEchoTimer, "", new { @class = "text-danger" })
             </div>
+           
         </div>
-
+    </div>
+    <div class="row">
         <div class="col-md-4">
 
             @Html.LabelFor(model => model.IsActive)
@@ -122,8 +104,8 @@
                 @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
-    <div class="row">
+
+
         <div class="col-md-4">
             @Html.LabelFor(model => model.ParticipantTypeId)
             <div class="form-group">
@@ -133,17 +115,16 @@
         </div>
 
         <div class="col-md-4">
-
             @Html.LabelFor(model => model.UpdatedBy)
             <div class="form-group">
                 @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
             </div>
+          
         </div>
-            
-
+    </div>
+    <div class="row">
         <div class="col-md-4">
-
             @Html.LabelFor(model => model.CreatedBy)
             <div class="form-group">
 
@@ -151,18 +132,12 @@
                 @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
             </div>
         </div>
-   
+        </div>
+     
 
-      @*<div class="col-md-4">
+       
 
-            @Html.LabelFor(model => model.UpdatedBy)
-            <div class="form-group">
-
-                @Html.EditorFor(model => model.UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UpdatedBy, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-    </div>
+     
 
     <div class="row">
 

@@ -60,15 +60,15 @@ namespace repository
         }
 
         public Task<IEnumerable<AdaptorType>> Edit(AdaptorType a)
-        {
+        {   
             var Data = db.adaptorType.Where(x => x.Id == a.Id).FirstOrDefault();
             if (Data != null)
             {
                 Data.Type = a.Type;
                 Data.Description = a.Description;
                 Data.CreatedBy = a.CreatedBy;
-                Data.CreatedOn = a.CreatedOn;
-                Data.CreatedOn = a.CreatedOn;
+               
+                Data.CreatedOn = DateTime.Now;
                 Data.AdaptorTypeId = a.AdaptorTypeId;
               
 

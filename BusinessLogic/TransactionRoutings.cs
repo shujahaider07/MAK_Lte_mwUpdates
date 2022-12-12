@@ -18,10 +18,10 @@ namespace BusinessLogic
         public int KeyFIeld3 { get; set; }
         public int KeyFIeld4 { get; set; }
         public int KeyFIeld5 { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public int CreatedBy { get; set; }
-        public DateTime UpdateOn { get; set; }
-        public string UpdatedBy { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public int? CreatedBy { get; set; }
+        public DateTime? UpdateOn { get; set; }
+        public string? UpdatedBy { get; set; }
 
 
     }

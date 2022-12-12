@@ -10,9 +10,12 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ParticipantTypeId" class="control-label"></label>
-                @Html.DropDownListFor(model => model.ParticipantTypeId,ViewBag.participantType as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                @Html.DropDownListFor(model => model.ParticipantTypeId,ViewBag.participantType  as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                @* @Html.DropDownListFor(model => model.ParticipantTypeId, new SelectList(Model.AssociationList, "Id", "Name"), "Select", new { @class = "form-control" })
+                *@
                 <span asp-validation-for="ParticipantTypeId" class="text-danger"></span>
             </div>
         </div>
@@ -25,24 +28,16 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label asp-for="UpdatedBy" class="control-label"></label>
-                <input asp-for="UpdatedBy" class="form-control" />
-                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
             </div>
         </div>
     </div>
 
 
 
-
     <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="Code" class="control-label"></label>
-                <input asp-for="Code" class="form-control" />
-                <span asp-validation-for="Code" class="text-danger"></span>
-            </div>
-        </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Bins" class="control-label"></label>
@@ -57,8 +52,6 @@
                 <span asp-validation-for="IsEchoEnable" class="text-danger"></span>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="MsgEchoTimer" class="control-label"></label>
@@ -66,50 +59,54 @@
                 <span asp-validation-for="MsgEchoTimer" class="text-danger"></span>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
-        </div>
+    </div>
+
+
+
+    <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="AssociationId" class="control-label"></label>
                 @Html.DropDownListFor(model => model.AssociationId,ViewBag.associationData as SelectList ,"--Select Name--",new  { @class = "form-control" })
                 <span asp-validation-for="AssociationId" class="text-danger"></span>
             </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" asp-for="IsActiveNew" />
+                        IsActive
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
-                <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="UpdateOn" class="control-label"></label>
-                <input asp-for="UpdateOn" class="form-control" />
-                <span asp-validation-for="UpdateOn" class="text-danger"></span>
-            </div>
-        </div>
-        </div>
+    @* <div class="col-md-4">
+    <div class="form-group">
+    <label asp-for="CreatedBy" class="control-label"></label>
+    <input asp-for="CreatedBy" class="form-control" />
+    <span asp-validation-for="CreatedBy" class="text-danger"></span>
+    </div>
+    </div>
+    </div>
 
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
-        </div>
+
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label asp-for="UpdatedBy" class="control-label"></label>
+    <input asp-for="UpdatedBy" class="form-control" />
+    <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+    </div>
+    </div>
+
+    </div>*@
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
 </form>
+
 
 
 <div>

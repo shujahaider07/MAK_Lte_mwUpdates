@@ -68,7 +68,7 @@ namespace MAK_Lte_Mw.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Participants(Participants p,char IsActive)
+        public async Task<IActionResult> Participants(Participants p)
         {
 
             //if (IsActive == "true")
@@ -121,6 +121,12 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+
+            Participants p = new Participants();
+            
+            p.IsActiveNew = p.IsActive.ToString() == "1" ? true : false; 
+
+
             List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
@@ -138,7 +144,14 @@ namespace MAK_Lte_Mw.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Participants a)
         {
-
+            if (a.IsActiveNew != false)
+            {
+                a.IsActive = '1';
+            }
+            else
+            {
+                a.IsActive = '0';
+            }
             try
             {
                 if (ModelState.IsValid)
@@ -153,6 +166,7 @@ namespace MAK_Lte_Mw.Controllers
             {
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
+
             return View(a);
 
 

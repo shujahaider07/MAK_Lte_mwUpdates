@@ -63,8 +63,8 @@ namespace repository
                 Data.InternalResponseCode = rcm.InternalResponseCode;
                 Data.CreatedBy = rcm.CreatedBy;
                 Data.UpdatedBy = rcm.UpdatedBy;
-                Data.UpdatedOn = rcm.UpdatedOn;
-                Data.CreatedOn = rcm.CreatedOn;
+                Data.UpdatedOn = DateTime.Now;
+                Data.CreatedOn = DateTime.Now;
 
 
 

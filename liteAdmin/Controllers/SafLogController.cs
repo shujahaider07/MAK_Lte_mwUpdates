@@ -114,7 +114,8 @@ namespace MAK_Lte_Mw.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    await _safelOg.Edit(s);
+                     _safelOg.Edit(s);
+                    db.SaveChanges();
 
 
                     return RedirectToAction("AddSafLogList");

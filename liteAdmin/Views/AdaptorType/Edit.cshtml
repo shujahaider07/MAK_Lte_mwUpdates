@@ -8,53 +8,54 @@
 <form asp-action="Edit">
 <h4>AdaptorType</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdaptorTypeId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.AdaptorTypeId, ViewBag.adaptorData as SelectList ,"--Select--",new  { @class = "form-control" })
+                <span asp-validation-for="AdaptorTypeId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Type" class="control-label"></label>
                 <input asp-for="Type" class="form-control" />
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
-            </div>
+        </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            </div>
-      
-
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>
-            </div>
         </div>
-         <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
-                <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-            </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="AdaptorTypeId" class="control-label"></label>
-                <input asp-for="AdaptorTypeId" class="form-control" />
-                <span asp-validation-for="AdaptorTypeId" class="text-danger"></span>
-            </div>
-            </div>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    </div>
+    @* <div class="col-md-4">
+    <div class="form-group">
+    <label asp-for="CreatedBy" class="control-label"></label>
+    <input asp-for="CreatedBy" class="form-control" />
+    <span asp-validation-for="CreatedBy" class="text-danger"></span>
+    </div>
+    </div>
+    </div>*@
+    @*  <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+    <label asp-for="CreatedOn" class="control-label"></label>
+    <input asp-for="CreatedOn" class="form-control" />
+    <span asp-validation-for="CreatedOn" class="text-danger"></span>
+    </div>
+    </div>
+    </div>*@
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
  
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="AddAdaptorTypeList">Back to List</a>
 </div>
 

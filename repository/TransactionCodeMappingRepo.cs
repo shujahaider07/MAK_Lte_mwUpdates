@@ -57,10 +57,10 @@ namespace repository
                 Data.InternalCode = tcm.InternalCode;
                 Data.ExternalCode = tcm.ExternalCode;
                 Data.ParticipantId = tcm.ParticipantId;
-                Data.CreatedOn = tcm.CreatedOn;
+                Data.CreatedOn = DateTime.Now;
                 Data.CreatedBy = tcm.CreatedBy;
                 Data.UpdatedBy = tcm.UpdatedBy;
-                Data.UpdateOn = tcm.UpdateOn;
+                Data.UpdateOn = DateTime.Now;
 
                 db.Entry(Data).State = EntityState.Modified;
                 db.SaveChanges();

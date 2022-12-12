@@ -30,7 +30,7 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
-        
+
 
 
             var list = await _users.ListUsers();
@@ -48,10 +48,14 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
+            Users u = new Users();
+            u.IsActiveNew = u.IsActive.ToString() == "1" ? true : false;
+
+
             List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
-            return View();
+            return View(u);
         }
 
 
@@ -63,6 +67,17 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
 
             }
+
+
+            if (a.IsActiveNew != false)
+            {
+                a.IsActive = '1';
+            }
+            else
+            {
+                a.IsActive = '0';
+            }
+
 
             if (ModelState.IsValid)
             {
@@ -79,12 +94,21 @@ namespace MAK_Lte_Mw.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Users a)
         {
+           
+            if (a.IsActiveNew != false)
+            {
+                a.IsActive = '1';
+            }
+            else
+            {
+                a.IsActive = '0';
+            }
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                     _users.Edit(a);
+                    _users.Edit(a);
 
 
                     return RedirectToAction("usersList");
@@ -102,6 +126,11 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            Users u = new Users();
+            u.IsActiveNew = u.IsActive.ToString() == "1" ? true : false;
+
+
+
             List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.associationData = new SelectList(associations, "Id", "Name");
 

@@ -7,7 +7,7 @@
 <h1>AddModulesList</h1>
 
 <p>
-    <a asp-action="AddModulesList">Create New</a>
+    <a asp-action="AddModulesType">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -73,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.CreatedBy)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
               @*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
             </td>
         </tr>
 }
