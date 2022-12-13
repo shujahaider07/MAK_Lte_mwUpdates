@@ -24,7 +24,7 @@ namespace repository
                 TransactionRoutings transactionRoutings = new TransactionRoutings();
 
                 transactionRoutings.ParticipantId = tr.ParticipantId;
-                transactionRoutings.KeyFieldId1 = tr.ParticipantId;
+                transactionRoutings.KeyFieldId1 = tr.KeyFieldId1;
                 transactionRoutings.KeyFIeld2 = tr.KeyFIeld2;
                 transactionRoutings.KeyFIeld3 = tr.KeyFIeld3;
                 transactionRoutings.KeyFIeld4 = tr.KeyFIeld4;
@@ -59,7 +59,7 @@ namespace repository
             if (Data != null)
             {
                 Data.ParticipantId = tr.ParticipantId;
-                Data.KeyFieldId1 = tr.ParticipantId;
+                Data.KeyFieldId1 = tr.KeyFieldId1;
                 Data.KeyFIeld2 = tr.KeyFIeld2;
                 Data.KeyFIeld3 = tr.KeyFIeld3;
                 Data.KeyFIeld4 = tr.KeyFIeld4;

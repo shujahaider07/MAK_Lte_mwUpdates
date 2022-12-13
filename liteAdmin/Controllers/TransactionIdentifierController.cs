@@ -31,12 +31,10 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            if (ModelState.IsValid)
-            {
                 var add = await _tran.AddransactionIdentifier(t);
                 return RedirectToAction("TransactionIdentifierList");
 
-            }
+            
 
             return View(t);
 
@@ -53,8 +51,13 @@ namespace MAK_Lte_Mw.Controllers
             }
 
 
-            List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-            ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+            if (ModelState.IsValid)
+            {
+                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+
+            }
+           
 
             return View();
         }

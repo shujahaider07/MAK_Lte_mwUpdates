@@ -26,9 +26,13 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
+            if (ModelState.IsValid)
+            {
+                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+            }
 
-            List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-            ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+            
 
             return View();
         }
@@ -45,12 +49,11 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 var add = await _transactionRoutings.AddTransactionRoutings(t);
                 return RedirectToAction("TransactionRoutingsList");
 
-            }
+            
 
             return View(t);
         }

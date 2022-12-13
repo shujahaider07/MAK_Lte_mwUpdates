@@ -64,8 +64,8 @@ namespace repository
                 data.UpdatedBy = s.UpdatedBy;
                 data.UpdateOn = DateTime.Now;
 
-                db.SafLog.Add(s);
-                db.SaveChanges();
+                db.Entry(s).State=EntityState.Modified;
+                //db.SaveChanges();
 
             }
 

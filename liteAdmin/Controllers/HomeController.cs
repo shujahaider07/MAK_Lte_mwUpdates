@@ -95,20 +95,23 @@ namespace liteAdmin.Controllers
         public async Task<IActionResult> ParticipantsType(ParticipantType pt)
         {
 
-
-
-            var add = await _partiType.AddparticipantType(pt);
-
-            if (add != null)
+            if (ModelState.IsValid)
             {
-                if (HttpContext.Session.GetString("username") == null)
+                var add = await _partiType.AddparticipantType(pt);
+
+                if (add != null)
                 {
-                    return RedirectToAction("LoginView", "Login");
+                    if (HttpContext.Session.GetString("username") == null)
+                    {
+                        return RedirectToAction("LoginView", "Login");
+                    }
+
+                    return RedirectToAction("ParticipantTypeList");
+
                 }
-
-                return RedirectToAction("ParticipantTypeList");
-
             }
+
+           
 
             return View(pt);
         }

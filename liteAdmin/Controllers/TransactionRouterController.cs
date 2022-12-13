@@ -29,8 +29,12 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
-            List<TransactionRoutings> TransactionRoutingss = db.TransactionRoutings.Select(x => new TransactionRoutings { Id = x.Id, ParticipantId = x.ParticipantId }).ToList();
-            ViewBag.Routings = new SelectList(TransactionRoutingss, "Id", "ParticipantId");
+            if (ModelState.IsValid)
+            {
+                List<TransactionRoutings> TransactionRoutingss = db.TransactionRoutings.Select(x => new TransactionRoutings { Id = x.Id, ParticipantId = x.ParticipantId }).ToList();
+                ViewBag.Routings = new SelectList(TransactionRoutingss, "Id", "ParticipantId");
+            }
+           
 
             return View();
         }
@@ -47,12 +51,11 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 var add = await _transactionRouter.AddTransactionRouter(t);
                 return RedirectToAction("TransactionRouterList");
 
-            }
+            
 
             return View(t);
         }

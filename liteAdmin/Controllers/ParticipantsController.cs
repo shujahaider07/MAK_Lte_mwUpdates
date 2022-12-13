@@ -31,16 +31,20 @@ namespace MAK_Lte_Mw.Controllers
 
             try
             {
+                if (ModelState.IsValid)
+                {
+                    List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
+                    ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
-                List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
-                ViewBag.associationData = new SelectList(associations, "Id", "Name");
+                    List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
+                    ViewBag.participantType = new SelectList(participantType, "Id", "Id");
 
-                List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
-                ViewBag.participantType = new SelectList(participantType, "Id", "Id");
+                    p.IsActiveNew = p.IsActive.ToString() == "1" ? true : false;
+                }
 
-                
 
-                p.IsActiveNew = p.IsActive.ToString() == "1" ? true : false;
+
+
 
                 //Participants types = new Participants();
                 //types.AssociationList = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
@@ -51,10 +55,13 @@ namespace MAK_Lte_Mw.Controllers
                 //List<Association> associations1 = new List<Association>();
                 //associations1 = (from Association in db.association select Association).ToList();
 
-                //   List<Association> associations = db.association.ToList();
-                //associations1.Insert(0,new Association {Id = 0 ,Name = "select"  });
-                //ViewBag.associationData = associations1;
+                //List<Association> associations = db.association.ToList();
+                //associations.Insert(0, new Association { Id = 0, Name = "select" });
+                //ViewBag.associationData = associations;
 
+
+
+                //ViewBag.association = new SelectList(db.association,"Id","Name");
 
 
             }

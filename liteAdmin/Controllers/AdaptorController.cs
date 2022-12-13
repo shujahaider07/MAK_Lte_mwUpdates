@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using repository;
+using System.Collections.Generic;
 using System.Data;
 
 namespace MAK_Lte_Mw.Controllers
@@ -30,18 +31,23 @@ namespace MAK_Lte_Mw.Controllers
 
             try
             {
+                if (ModelState.IsValid)
+                {
 
-             
-                a.IsActiveNew = a.IsActive.ToString() == "1" ? true : false; 
-
-
-                List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
-                ViewBag.associationData = new SelectList(associations, "Id", "Name");
+                    a.IsActiveNew = a.IsActive.ToString() == "1" ? true : false;
 
 
-                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+                    List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
+                    ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
+
+                    List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                    ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+
+                    List<AdaptorType> AdaptorType = db.adaptorType.Select(x => new AdaptorType { Id = x.Id }).ToList();
+                    ViewBag.AdaptorType = new SelectList(AdaptorType, "Id", "Id");
+
+                }
             }
             catch (Exception)
             {
@@ -65,22 +71,23 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            if (a.IsActiveNew != false)
-            {
-                a.IsActive = '1';
-            }
-            else
-            {
-                a.IsActive = '0';
-            }
+           
 
-            if (ModelState.IsValid)
-            {
+            
+                if (a.IsActiveNew != false)
+                {
+                    a.IsActive = '1';
+                }
+                else
+                {
+                    a.IsActive = '0';
+                }
 
                 var add = await _adaptor.Addadaptor(a);
                 return RedirectToAction("adaptorList");
-
-            }
+               
+               
+            
 
             return View(a);
 
@@ -96,10 +103,15 @@ namespace MAK_Lte_Mw.Controllers
             {
                 return RedirectToAction("LoginView", "Login");
             }
+            if (ModelState.IsValid)
+            {
+                var list = await _adaptor.ListAdaptor();
+                return View(list);
+            }
 
-            var list = await _adaptor.ListAdaptor();
-            return View(list);
+            return null;
         }
+
 
 
         [HttpGet]
@@ -112,6 +124,9 @@ namespace MAK_Lte_Mw.Controllers
             List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
+
+            List<AdaptorType> AdaptorType = db.adaptorType.Select(x => new AdaptorType { Id = x.Id }).ToList();
+            ViewBag.AdaptorType = new SelectList(AdaptorType, "Id", "Id");
 
             List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
             ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");

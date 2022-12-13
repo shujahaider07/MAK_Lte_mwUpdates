@@ -13,6 +13,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AdaptorTypeId" class="control-label"></label>
+                @*<select asp-for="AdaptorTypeId" asp-items="@(new SelectList(ViewBag.adaptorData,"Id","AdaptorTypeId"))"></select>*@
                 @Html.DropDownListFor(model => model.AdaptorTypeId, ViewBag.adaptorData as SelectList ,"--Select--",new  { @class = "form-control" })
                 <span asp-validation-for="AdaptorTypeId" class="text-danger"></span>
             </div>

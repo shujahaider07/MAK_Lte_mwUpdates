@@ -27,8 +27,13 @@ namespace MAK_Lte_Mw.Controllers
             try
             {
 
-                List<Adaptor> adaptors = db.adaptor.Select(x => new Adaptor { Id = x.Id, AdaptorTypeId = x.AdaptorTypeId }).ToList();
-                ViewBag.adaptorData = new SelectList(adaptors, "Id", "AdaptorTypeId");
+                if (ModelState.IsValid)
+                {
+                    List<Adaptor> adaptors = db.adaptor.Select(x => new Adaptor { Id = x.Id, AdaptorTypeId = x.AdaptorTypeId }).ToList();
+                    ViewBag.adaptorData = new SelectList(adaptors, "Id", "AdaptorTypeId");
+
+                }
+
 
 
             }
@@ -48,18 +53,19 @@ namespace MAK_Lte_Mw.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAdaptorType(AdaptorType a)
         {
-            if (HttpContext.Session.GetString("username") == null)
-            {
-                return RedirectToAction("LoginView", "Login");
+            
 
-            }
+            var add = await _adaptorType.AddadaptorType(a);
 
-            if (ModelState.IsValid)
+            if (add != null)
             {
-                var add = await _adaptorType.AddadaptorType(a);
-                db.SaveChanges();
+                if (HttpContext.Session.GetString("username") == null)
+                {
+                    return RedirectToAction("LoginView", "Login");
+                }
+
                 return RedirectToAction("AddAdaptorTypeList");
-               
+
             }
 
             return View(a);
@@ -89,8 +95,15 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            List<Adaptor> adaptors = db.adaptor.Select(x => new Adaptor { Id = x.Id, AdaptorTypeId = x.AdaptorTypeId }).ToList();
-            ViewBag.adaptorData = new SelectList(adaptors, "Id", "AdaptorTypeId");
+
+            if (ModelState.IsValid)
+            {
+                List<Adaptor> adaptors = db.adaptor.Select(x => new Adaptor { Id = x.Id, AdaptorTypeId = x.AdaptorTypeId }).ToList();
+                ViewBag.adaptorData = new SelectList(adaptors, "Id", "AdaptorTypeId");
+
+            }
+
+         
 
 
             AdaptorType Fetch = await _adaptorType.GetAdaptorTypeByID(id);

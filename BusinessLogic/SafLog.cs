@@ -12,12 +12,19 @@ namespace BusinessLogic
 
         [Key]
         public int Id { get; set; }
+        [Required]
         public int ParticipantId { get; set; }
+        [Required]
         public string Message { get; set; }
+        [Required]
         public int Retries { get; set; }
-        public DateTime CreatedOn { get; set; }
+        [Required]
+        public DateTime? CreatedOn { get; set; }
+        [Required]
         public int CreatedBy { get; set; }
-        public DateTime UpdateOn { get; set; }
+        [Required]
+        public DateTime? UpdateOn { get; set; }
+        [Required]
         public int UpdatedBy { get; set; }
 
 

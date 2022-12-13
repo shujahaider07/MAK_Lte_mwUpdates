@@ -29,9 +29,13 @@ namespace MAK_Lte_Mw.Controllers
 
             try
             {
+                if (ModelState.IsValid)
+                {
+                    List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                    ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+                }
 
-                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+             
 
 
             }
@@ -62,6 +66,10 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("SafConfigurationList");
 
             }
+
+            //var add = await _safe.AddSafConfiguration(s);
+            //db.SaveChanges();
+            //return RedirectToAction("SafConfigurationList");
 
             return View(s);
         }

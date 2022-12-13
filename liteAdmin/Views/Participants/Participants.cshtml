@@ -20,8 +20,8 @@
             <div class="form-group">
                 <label asp-for="ParticipantTypeId" class="control-label"></label>
                 @Html.DropDownListFor(model => model.ParticipantTypeId,ViewBag.participantType  as SelectList ,"--Select Name--",new  { @class = "form-control" })
-                @* @Html.DropDownListFor(model => model.ParticipantTypeId, new SelectList(Model.AssociationList, "Id", "Name"), "Select", new { @class = "form-control" })
-                *@
+                 @*@Html.DropDownListFor(model => model.ParticipantTypeId, new SelectList(Model.ParticipantTypeId, "Id", "Name"), "Select", new { @class = "form-control" })*@
+                
                 <span asp-validation-for="ParticipantTypeId" class="text-danger"></span>
             </div>
         </div>
@@ -73,7 +73,9 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="AssociationId" class="control-label"></label>
-                @Html.DropDownListFor(model => model.AssociationId,ViewBag.associationData as SelectList ,"--Select Name--",new  { @class = "form-control" })
+                @*@Html.DropDownListFor(model => model.AssociationId, new SelectList(Model.AssociationList, "Id", "Name"), "Select", new { @class = "form-control" })*@
+@*                <select class="form-control" asp-items="ViewBag.association"></select>
+*@                @Html.DropDownListFor(model => model.AssociationId,ViewBag.associationData as SelectList ,"--Select Name--",new  { @class = "form-control" })
                 <span asp-validation-for="AssociationId" class="text-danger"></span>
             </div>
             </div>

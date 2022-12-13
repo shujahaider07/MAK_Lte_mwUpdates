@@ -27,10 +27,13 @@ namespace MAK_Lte_Mw.Controllers
             {
                 return RedirectToAction("LoginView", "Login");
             }
+            if (ModelState.IsValid)
+            {
 
+                List<TransactionIdentifier> identifiers = db.TransactionIdentifier.Select(x => new TransactionIdentifier { Id = x.Id, ParticipantId = x.ParticipantId }).ToList();
+                ViewBag.IdentifierData = new SelectList(identifiers, "Id", "ParticipantId");
+            }
 
-            List<TransactionIdentifier> identifiers = db.TransactionIdentifier.Select(x => new TransactionIdentifier { Id = x.Id , ParticipantId = x.ParticipantId}).ToList();
-            ViewBag.IdentifierData = new SelectList(identifiers, "Id", "ParticipantId");
 
 
             return View("transactionField");
@@ -48,14 +51,15 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            if (ModelState.IsValid)
-            {
                 var add = await _tranFields.AddTransactionFields(t);
+                
+            
+
                 return RedirectToAction("transactionFieldList");
 
-            }
+            
 
-            return View(t);
+                return View(t);
 
 
         }

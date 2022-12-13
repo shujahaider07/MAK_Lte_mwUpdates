@@ -43,17 +43,21 @@ namespace MAK_Lte_Mw.Controllers
         [HttpGet]
         public async Task<IActionResult> users()
         {
+            Users u = new Users();
             if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToAction("LoginView", "Login");
             }
+            if (ModelState.IsValid)
+            {
 
-            Users u = new Users();
-            u.IsActiveNew = u.IsActive.ToString() == "1" ? true : false;
+                u.IsActiveNew = u.IsActive.ToString() == "1" ? true : false;
 
 
-            List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
-            ViewBag.associationData = new SelectList(associations, "Id", "Name");
+                List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
+                ViewBag.associationData = new SelectList(associations, "Id", "Name");
+            }
+
 
             return View(u);
         }
@@ -77,14 +81,23 @@ namespace MAK_Lte_Mw.Controllers
             {
                 a.IsActive = '0';
             }
+          
+            var add = await _users.AddUsers(a);
 
-
-            if (ModelState.IsValid)
+            if (add != null)
             {
-                var add = await _users.AddUsers(a);
+                if (HttpContext.Session.GetString("username") == null)
+                {
+                    return RedirectToAction("LoginView", "Login");
+                }
+
                 return RedirectToAction("usersList");
 
             }
+
+
+          
+
 
             return View(a);
 
@@ -94,7 +107,7 @@ namespace MAK_Lte_Mw.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Users a)
         {
-           
+
             if (a.IsActiveNew != false)
             {
                 a.IsActive = '1';

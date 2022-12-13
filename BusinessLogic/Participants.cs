@@ -12,15 +12,15 @@ namespace BusinessLogic
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="ParticipantId is required")]
         public int ParticipantTypeId { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Name is required")]
         public string Code { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Bins Required")]
         public string Bins { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Is Echo required")]
         //[Display(Name= "IsEcho Enable ")]
         public char IsEchoEnable  { get; set; }
         [Required]

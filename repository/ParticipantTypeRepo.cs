@@ -23,7 +23,7 @@ namespace repository
 
                 participanttype.Type = p.Type;
                 participanttype.Descryption = p.Descryption;
-                //participanttype.ParticipantTypeId = p.ParticipantTypeId;
+              
 
                 var add = db.participantType.AddAsync(participanttype);
                 await db.SaveChangesAsync();

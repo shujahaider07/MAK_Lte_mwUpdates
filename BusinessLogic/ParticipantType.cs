@@ -6,8 +6,9 @@ namespace BusinessLogic
     {
         [Key]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Type is required")]
         public string Type { get; set; }
-
+        [Required(ErrorMessage = "Discription is required")]
         [Display(Name = "Discription")]
         public string Descryption { get; set; }
         //[Required]

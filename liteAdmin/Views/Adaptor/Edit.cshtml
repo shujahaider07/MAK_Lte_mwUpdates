@@ -29,7 +29,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="AdaptorTypeId" class="control-label"></label>
-                <input asp-for="AdaptorTypeId" class="form-control" />
+                @Html.DropDownListFor(model => model.AdaptorTypeId,ViewBag.AdaptorType as SelectList ,"--Select Name--",new  { @class = "form-control" })
                 <span asp-validation-for="AdaptorTypeId" class="text-danger"></span>
             </div>
         </div>

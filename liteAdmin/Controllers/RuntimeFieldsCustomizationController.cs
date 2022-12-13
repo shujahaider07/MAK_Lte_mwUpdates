@@ -28,12 +28,17 @@ namespace MAK_Lte_Mw.Controllers
             }
             try
             {
+                if (ModelState.IsValid)
+                {
+                    List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                    ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
 
-                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+                    List<TransactionIdentifier> identifiers = db.TransactionIdentifier.Select(x => new TransactionIdentifier { Id = x.Id, ParticipantId = x.ParticipantId }).ToList();
+                    ViewBag.IdentifierData = new SelectList(identifiers, "Id", "ParticipantId");
+                }
 
-                List<TransactionIdentifier> identifiers = db.TransactionIdentifier.Select(x => new TransactionIdentifier { Id = x.Id, ParticipantId = x.ParticipantId }).ToList();
-                ViewBag.IdentifierData = new SelectList(identifiers, "Id", "ParticipantId");
+
+                
 
             }
             catch (Exception)
@@ -57,14 +62,28 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
 
             }
+          
+            
+            var add = await _Runtime.AddRuntimeFieldsCustomization(s);
 
-            if (ModelState.IsValid)
+            if (add == null)
             {
-                var add = await _Runtime.AddRuntimeFieldsCustomization(s);
-                db.SaveChanges();
+                if (HttpContext.Session.GetString("username") == null)
+                {
+                    return RedirectToAction("LoginView", "Login");
+                }
+
                 return RedirectToAction("AddRuntimeFieldsCustomizationList");
 
             }
+            
+
+
+            //var add = await _Runtime.AddRuntimeFieldsCustomization(s);
+            //    db.SaveChanges();
+            //    return RedirectToAction("AddRuntimeFieldsCustomizationList");
+
+
 
             return View(s);
 

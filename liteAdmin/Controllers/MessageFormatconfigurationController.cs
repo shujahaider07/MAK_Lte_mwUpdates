@@ -31,24 +31,28 @@ namespace MAK_Lte_Mw.Controllers
                 return RedirectToAction("LoginView", "Login");
             }
 
+            if (ModelState.IsValid)
+            {
+                List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
+                ViewBag.associationData = new SelectList(associations, "Id", "Name");
 
-            List<Association> associations = db.association.Select(x => new Association { Id = x.Id, Name = x.Name }).ToList();
-            ViewBag.associationData = new SelectList(associations, "Id", "Name");
-
-            List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
-            ViewBag.participantType = new SelectList(participantType, "Id", "Id");
-
-
-            List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-            ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
+                List<ParticipantType> participantType = db.participantType.Select(x => new ParticipantType { Id = x.Id }).ToList();
+                ViewBag.participantType = new SelectList(participantType, "Id", "Id");
 
 
-            List<InternalFields> internalFields= db.InternalFields.Select(x => new InternalFields { Id = x.Id, Name = x.Name }).ToList();
-            ViewBag.internalFields = new SelectList(internalFields, "Id", "Name");
+                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
 
 
-            List<EncodingType> encodingtype = db.EncodingType.Select(x => new EncodingType { Id = x.Id}).ToList();
-            ViewBag.encodingtype = new SelectList(encodingtype, "Id", "Id");
+                List<InternalFields> internalFields = db.InternalFields.Select(x => new InternalFields { Id = x.Id, Name = x.Name }).ToList();
+                ViewBag.internalFields = new SelectList(internalFields, "Id", "Name");
+
+
+                List<EncodingType> encodingtype = db.EncodingType.Select(x => new EncodingType { Id = x.Id }).ToList();
+                ViewBag.encodingtype = new SelectList(encodingtype, "Id", "Id");
+
+
+            }
 
 
             return View("AddMessageFormatconfiguration");

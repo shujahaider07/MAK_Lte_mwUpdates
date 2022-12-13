@@ -30,10 +30,13 @@ namespace MAK_Lte_Mw.Controllers
             }
             try
             {
+                if (ModelState.IsValid)
+                {
+                     List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
+                     ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
 
-                List<Participants> participants = db.participants.Select(x => new Participants { Id = x.Id, Name = x.Name }).ToList();
-                ViewBag.ParticipantData = new SelectList(participants, "Id", "Name");
-
+                }
+               
 
             }
             catch (Exception)
@@ -58,13 +61,19 @@ namespace MAK_Lte_Mw.Controllers
 
             }
 
-            if (ModelState.IsValid)
+            var add = await _safelOg.AddSafLog(s);
+
+            if (add != null)
             {
-                var add = await _safelOg.AddSafLog(s);
-                db.SaveChanges();
+                if (HttpContext.Session.GetString("username") == null)
+                {
+                    return RedirectToAction("LoginView", "Login");
+                }
+
                 return RedirectToAction("AddSafLogList");
 
             }
+
 
             return View(s);
 
